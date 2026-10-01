@@ -1,0 +1,14 @@
+# Gradle / build
+.gradle/
+build/
+.kotlin/
+local.properties
+# IDE
+.idea/
+*.iml
+# artifacts & private material
+*.apk
+*.aab
+*.jks
+*.keystore
+covernet-diag-*.txt

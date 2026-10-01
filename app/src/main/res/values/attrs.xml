@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="initialLayoutTiny" format="reference" />
+    <attr name="initialLayoutSmall" format="reference" />
+    <attr name="initialLayoutMedium" format="reference" />
+    <attr name="previewLayoutTiny" format="reference" />
+    <attr name="previewLayoutSmall" format="reference" />
+    <attr name="previewLayoutMedium" format="reference" />
+    <attr name="targetHost" format="integer" />
+    <attr name="widgetSize" format="integer" />
+    <attr name="widgetStyle" format="integer" />
+    <attr name="allowMultipleSizes" format="boolean" />
+</resources>

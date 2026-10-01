@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <!-- Wi-Fi SSID is location-sensitive: needs fine + background location (widget updates run in background) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- AP scan: results are location-sensitive, so NEARBY_WIFI_DEVICES must NOT carry neverForLocation -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <application
+        android:label="CoverNet"
+        android:icon="@drawable/ic_launcher"
+        android:allowBackup="false"
+        android:theme="@android:style/Theme.DeviceDefault.DayNight">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".DiagActivity" android:exported="false" />
+        <activity android:name=".ScanActivity" android:exported="false" android:label="Wi-Fi access points" />
+
+        <!-- Clock-face (lock screen) tile: Samsung "monotone" widget style, see README -->
+        <receiver
+            android:name=".WidgetFace1"
+            android:label="CoverNet"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <!-- sent by the cover clock-face host (aodservice) when the tile is shown/hidden -->
+                <action android:name="com.samsung.android.sdk.subscreen.widget.action.VISIBILITY_CHANGED" />
+                <action android:name="com.samsung.android.honeyspace.widget.action.VISIBILITY_CHANGED" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_face1" />
+            <meta-data android:name="samsung.appwidget.monotone.info"
+                android:resource="@xml/widget_face_mono" />
+            <meta-data android:name="com.samsung.android.sdk.subscreen.widget.support_visibility_callback"
+                android:value="true" />
+        </receiver>
+
+        <!-- Home-screen version: plain Android widget (the lock-face one is cover-only via targetHost) -->
+        <receiver
+            android:name=".WidgetHome"
+            android:label="CoverNet"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_home" />
+        </receiver>
+
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

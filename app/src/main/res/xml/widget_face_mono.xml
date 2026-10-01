@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<samsung-appwidget-info xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:allowMultipleSizes="true"
+    app:initialLayoutTiny="@layout/widget_face"
+    app:initialLayoutSmall="@layout/widget_face"
+    app:initialLayoutMedium="@layout/widget_face"
+    app:previewLayoutTiny="@layout/widget_face"
+    app:previewLayoutSmall="@layout/widget_face"
+    app:previewLayoutMedium="@layout/widget_face"
+    app:targetHost="0x6"
+    app:widgetSize="0xb"
+    app:widgetStyle="0x2" />
