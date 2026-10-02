@@ -7,12 +7,11 @@ I got the new z flip 8 and was hugely disappointed with the cover screen options
 Wi-Fi + cellular connectivity on the **locked cover screen** of a Samsung Galaxy Z Flip — plus the same
 widget for the home screen, and a Wi-Fi access-point scanner. No root, no Good Lock.
 
-```
- ((•))   ▂▄▆█
-eduroam  Vodafone
-```
 
-The Flip's cover screen shows the battery but no network status. Samsung lets third-party widgets onto the
+<img src="screenshot.jpg" width="25%">
+
+
+The Flip's over screen shows the battery but no network status. Samsung lets third-party widgets onto the
 cover *widget pages*, but those are only reachable after unlocking. The tiles on the clock face itself —
 the ones that show while the phone is locked — were, until now, Samsung-only. CoverNet gets a widget in
 there; see [How it works](#how-it-works).
